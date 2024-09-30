@@ -23,7 +23,7 @@ export PATH="$PATH:$oldpath:/data/data/com.termux/files/usr/bin:/data/data/com.t
 loopforever="$(cat "$pyfile" | grep -o 'LOOP_FOREVER')"
 if [ -n "$loopforever" ]; then
     while true; do
-        exec "$mysu" -s "$termuxbash" --preserve-environment --mount-master -c "$pythonpath $pyfile"
+        sh "$mysu" -s "$termuxbash" --preserve-environment --mount-master -c "$pythonpath $pyfile"
     done
 else
     exec "$mysu" -s "$termuxbash" --preserve-environment --mount-master -c "$pythonpath $pyfile"
